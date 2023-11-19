@@ -29,7 +29,7 @@ def get_existing_notes():
 
 
 # MongoDB connection
-client = MongoClient('mongodb://note:note@mongodb:27017/')
+client = MongoClient('mongodb://user:pass@mongodb:27017/')
 db = client['notes_db']
 collection = db['notes_collection']
 

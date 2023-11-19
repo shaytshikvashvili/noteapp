@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    image: shayts/noteapp:1.0.1
+    container_name: noteapp-container
+    ports:
+      - "8080:8000"
+    depends_on:
+      - mongodb
+    links:
+      - mongodb 
+  mongodb:
+    image: mongodb/mongodb-community-server:7.0.3-ubi8
+    container_name: mongodb-container
+    ports:
+      - "27017:27017"
+    environment:
+      MONGODB_INITDB_ROOT_USERNAME: user
+      MONGODB_INITDB_ROOT_PASSWORD: pass
+    volumes:
+      - mongodb-data:/data/db
+    
+volumes:
+  mongodb-data:
