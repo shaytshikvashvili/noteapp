@@ -1,7 +1,9 @@
 version: '3'
 services:
   app:
-    image: shayts/noteapp:1.0.1
+    build:
+      context: .
+    image: shayts/noteapp
     container_name: noteapp-container
     ports:
       - "8080:8000"
